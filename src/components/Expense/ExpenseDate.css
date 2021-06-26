@@ -12,12 +12,12 @@
 }
 
 .expense-date__month {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: bold;
 }
 
 .expense-date__year {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
 }
 
 .expense-date__day {

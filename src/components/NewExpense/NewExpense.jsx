@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
+import Card from "../UI/Card";
+import "./NewExpense.css";
 
 const NewExpense = (props) => {
   const [isEditing, setIsEditing] = useState(false);
-  const saveChangeDataHandler = (enteredExpenseData) => {
+  const expenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
-      id: Math.floor(Math.random()),
+      id: Math.random().toString(),
     };
-
     props.onAddExpense(expenseData);
     setIsEditing(false);
   };
@@ -21,9 +21,8 @@ const NewExpense = (props) => {
   const stopEditingHandler = () => {
     setIsEditing(false);
   };
-
   return (
-    <div className="new-expense">
+    <Card className="new-expense">
       {!isEditing && (
         <button type="button" onClick={startEditingHandler}>
           Add New Expense
@@ -32,11 +31,11 @@ const NewExpense = (props) => {
 
       {isEditing && (
         <ExpenseForm
-          onSaveExpenseData={saveChangeDataHandler}
-          onCancel={stopEditingHandler}
-        ></ExpenseForm>
+          onSaveExpenseData={expenseDataHandler}
+          onCancle={stopEditingHandler}
+        />
       )}
-    </div>
+    </Card>
   );
 };
 

@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 1rem;
   margin: 1rem 0;
-  background-color: #4b4b4b;
+  background-color: #484848;
   width: 100%;
+  color: #fff;
 }
 
 .expense-item__description {
@@ -30,7 +31,7 @@
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
-  background-color: #40005d;
+  background-color: #483D8B;
   border: 1px solid #fff;
   padding: 0.5rem;
   border-radius: 12px;

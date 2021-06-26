@@ -6,15 +6,15 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
-  const onChangeTitleHandler = (event) => {
+  const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
 
-  const onChangeAmountHandler = (event) => {
+  const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
   };
 
-  const onChangeDateHandler = (event) => {
+  const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
 
@@ -26,7 +26,6 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-
     props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
@@ -40,8 +39,8 @@ const ExpenseForm = (props) => {
           <label>Title</label>
           <input
             type="text"
+            onChange={titleChangeHandler}
             value={enteredTitle}
-            onChange={onChangeTitleHandler}
           />
         </div>
         <div className="new-expense__control">
@@ -50,26 +49,23 @@ const ExpenseForm = (props) => {
             type="number"
             min="0.01"
             step="0.01"
+            onChange={amountChangeHandler}
             value={enteredAmount}
-            onChange={onChangeAmountHandler}
           />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
           <input
             type="date"
-            min="2019-31-12"
-            max="2022-31-12"
+            min="2018-01-01"
+            max="2022-12-31"
+            onChange={dateChangeHandler}
             value={enteredDate}
-            onChange={onChangeDateHandler}
           />
         </div>
       </div>
-
       <div className="new-expense__actions">
-        <button type="button" onClick={props.onCancel}>
-          Cancel
-        </button>
+        <button onClick={props.onCancle}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
